@@ -4,6 +4,10 @@ import { BrowserRouter, Route, Link } from 'react-router-dom'
 const App = () => (
   <BrowserRouter>
     <div>
+      <ul>
+        <li><Link to='/'>Top</Link></li>
+        <li><Link to='blogs'>Blogs</Link></li>
+      </ul>
       <Route exact path='/' component={Top} />
       <Route path='/blogs' component={Blogs} />
     </div>
@@ -13,7 +17,7 @@ const App = () => (
 const Top = () => (
   <div>
     <h2>Top</h2>
-    <p>this is Top page! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus, eaque?</p>
+    <p>This is Top page! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus, eaque?</p>
   </div>
 )
 const Blogs = () => (
