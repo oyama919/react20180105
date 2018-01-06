@@ -10,7 +10,7 @@ const App = () => (
       </ul>
       <Route exact path='/' component={Top} />
       <Route exact path='/blogs' component={BlogsIndex} />
-      <Route exact path='/blogs/:id' component={Blog} />
+      <Route exact path='/blogs/:params_id' component={Blog} />
     </div>
   </BrowserRouter>
 )
@@ -35,20 +35,20 @@ const BlogsIndex = () => (
 )
 
 const Blog = props => {
-  const { id } = props.match.params;
-  const blog = GetBlogDataByID(id);
+  const { params_id } = props.match.params;
+  const blog = GetBlogDataByID(params_id);
 
   if (typeof blog === 'undefined')  {
     return (
       <div>
-        <p>Blogs id:'{id}' が見つかりませんでした</p>
+        <p>Blogs id:'{params_id}' が見つかりませんでした</p>
       </div>
     )
   }
 
   return (
     <div>
-      <h2>Title:{blog.title} Id:{id}</h2>
+      <h2>Title:{blog.title} Id:{params_id}</h2>
       <p>{blog.contents}</p>
       <p><Link to='/blogs'>Back</Link></p>
     </div>
@@ -83,6 +83,6 @@ const BLOG_DB_DATA = [
   }
 ]
 
-const GetBlogDataByID = id => BLOG_DB_DATA.find(blogData => blogData.id === id)
+const GetBlogDataByID = params_id => BLOG_DB_DATA.find(blogData => blogData.id === params_id)
 
 export default App
