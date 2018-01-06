@@ -11,6 +11,7 @@ const App = () => (
       </ul>
       <Route exact path='/' component={Top} />
       <Route path='/blogs' component={Blogs} />
+      <Route exact path='/blogs' component={BlogsIndex} />
     </div>
   </BrowserRouter>
 )
