@@ -7,6 +7,7 @@ const App = () => (
       <ul>
         <li><Link to='/'>Top</Link></li>
         <li><Link to='blogs'>Blogs</Link></li>
+        <li><Link to='/blogs'>Blogs</Link></li>
       </ul>
       <Route exact path='/' component={Top} />
       <Route path='/blogs' component={Blogs} />
