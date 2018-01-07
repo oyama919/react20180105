@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Link } from 'react-router-dom'
 import Top from './Top';
 import Blogs from './blogs/Index';
 import Blog from './blogs/Show';
+import NewBlog from './blogs/New';
 
 const App = () => (
   <BrowserRouter>
@@ -15,6 +16,7 @@ const App = () => (
       <Route exact path='/' component={Top} />
       <Route exact path='/blogs' component={Blogs} />
       <Route exact path='/blogs/:params_id' component={Blog} />
+      <Route exact path='/blogs/new' component={NewBlog} />
     </div>
   </BrowserRouter>
 )
