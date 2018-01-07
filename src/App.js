@@ -2,7 +2,6 @@ import React from 'react'
 import { BrowserRouter, Route, Link } from 'react-router-dom'
 
 import Top from './Top';
-import BLOG_DB_DATA from './blogs/BlogDB';
 import Blogs from './blogs/Index';
 import Blog from './blogs/Show';
 
