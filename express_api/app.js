@@ -1,5 +1,7 @@
 var express = require('express');
 var app = express();
+var sqlite3 = require('sqlite3');
+var db = new sqlite3.Database('apidata.sqlite3');
 
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
@@ -8,29 +10,13 @@ app.use(function(req, res, next) {
 });
 
 app.get('/api/blogs', function(req, res) {
-  res.json([
-    {
-      id: '1',
-      title: 'some title1',
-      contents: 'Lorem ipsum dolor sit amet.'
-    }, {
-      id: '2',
-      title: 'some title2',
-      contents: 'Lorem ipsum dolor sit amet.'
-    }, {
-      id: '3',
-      title: 'some title3',
-      contents: 'Lorem ipsum dolor sit amet.'
-    }, {
-      id: '4',
-      title: 'some title4',
-      contents: 'Lorem ipsum dolor sit amet.'
-    }, {
-      id: '5',
-      title: 'some title5',
-      contents: 'Lorem ipsum dolor sit amet.'
-    }
-  ]);
+  db.serialize(() => {
+    db.all("select * from blogs", (err, item) => {
+      if (!err){
+        res.json(item);
+      }
+    });
+  });
 });
 
 //start: node-dev app.js (npm i -g node-dev)
