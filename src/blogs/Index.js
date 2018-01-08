@@ -1,14 +1,26 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
-import BLOG_DB_DATA from './BlogDB';
 
 class Blogs extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {blogs: []};
+  }
+
+  componentDidMount() {
+    fetch('http://localhost:3001/api/blogs')
+    .then(res => res.json())
+    .then(blogs => this.setState({blogs}));
+  }
+
   render() {
+    const  blogs = this.state.blogs;
     return (
       <div>
         <h1>Blogs</h1>
         <p>This is Blog page! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis, esse.</p>
-        {BLOG_DB_DATA.map(blog => (
+        {blogs.map(blog => (
           <li key={blog.id}>
             <Link to={`/blogs/${blog.id}`}>{blog.title}</Link>
           </li>
