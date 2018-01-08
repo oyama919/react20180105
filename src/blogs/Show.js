@@ -11,6 +11,7 @@ class Blog extends Component {
   }
 
   render() {
+    if (this.state.params_id === 'new') { return false; }
     if (typeof this.state.blog === 'undefined')  {
       return (
         <p>Blogs id:'{this.state.params_id}' が見つかりませんでした</p>
