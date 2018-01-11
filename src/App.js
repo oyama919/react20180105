@@ -12,6 +12,7 @@ const App = () => (
       <ul>
         <li><Link to='/'>Top</Link></li>
         <li><Link to='/blogs'>Blogs</Link></li>
+        <li><Link to='/blogs/new'>New Blog</Link></li>
       </ul>
       <Route exact path='/' component={Top} />
       <Route exact path='/blogs' component={Blogs} />
