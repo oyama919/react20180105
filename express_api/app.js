@@ -28,6 +28,16 @@ app.post('/api/blogs/new', function(req, res, next) {
   db.run('insert into blogs (title) values (?)',[tle]);
 });
 
+/* show */
+app.get('/api/blogs/:id', function(req, res, next) {
+  db.get('select title, contents from blogs where id = $id',
+    { $id: req.params.id }, (err, item) => {
+      if (!err){
+        res.json(item);
+      }
+  });
+});
+
 
 //start: node-dev app.js (npm i -g node-dev)
 var server = app.listen(3001, function() {
