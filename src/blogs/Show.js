@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
-import BLOG_DB_DATA from './BlogDB';
 
 class Blog extends Component {
 
