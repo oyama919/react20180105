@@ -8,40 +8,45 @@ class Blog extends Component {
     console.log("bbbbbb")
     console.log(this.props.match.params.params_id)
     console.log("bbbbbb")
-    this.state = { 
+    if(!isNaN(this.props.match.params.params_id)){
+      this.state = { 
         blog: { id: null, title:null, contents: null }
-    };
+      };
+    }else {
+      this.state = this.props.match.params.params_id;
+    }
   }
 
   componentDidMount() {
+    if(!isNaN(this.props.match.params.params_id)){
       fetch(`http://localhost:3001/api/blogs/${this.props.match.params.params_id}`)
-    .then(
-      res =>
-        res.json().then(data => {
-          console.log("cccccc")
-          console.log(data)
-          console.log("cccccc")
-          this.setState({
-            blog: {
-              id: this.state.blog.id, 
-              title: data.title,
-              contents: data.contents
-            }
-          })
-        }
-      )
-    );
+      .then(
+        res =>
+          res.json().then(data => {
+            console.log("cccccc")
+            console.log(data)
+            console.log("cccccc")
+            this.setState({
+              blog: {
+                id: data.id, 
+                title: data.title,
+                contents: data.contents
+              }
+            })
+          } 
+        )
+      );
     }
   }
 
   render() {
-    if (this.state === undefined || this.state === null) {
+    if (this.state === undefined || this.state === null || isNaN(this.props.match.params.params_id)) {
       return (
-        <p>Blogs id:'{this.state.id}' が見つかりませんでした</p>
+        <p>Blogs id:'{this.state}' が見つかりませんでした</p>
       )
     } else if (this.state.blog === null)  {
       return (
-        <p>Blogs id:'{this.state.id}' が見つかりませんでした</p>
+        <p>Blogs id が見つかりませんでした</p>
       )
     } else {
     return (
