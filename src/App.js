@@ -5,6 +5,7 @@ import Top from './Top';
 import Blogs from './blogs/Index';
 import Blog from './blogs/Show';
 import NewBlog from './blogs/New';
+import EditBlog from './blogs/Edit';
 
 const App = () => (
   <BrowserRouter>
@@ -18,6 +19,7 @@ const App = () => (
       <Route exact path='/blogs' component={Blogs} />
       <Route exact path='/blogs/show/:params_id' component={Blog} />
       <Route exact path='/blogs/new' component={NewBlog} />
+      <Route exact path='/blogs/edit/:id' component={EditBlog} />
     </div>
   </BrowserRouter>
 )
