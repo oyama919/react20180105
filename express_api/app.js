@@ -30,7 +30,7 @@ app.post('/api/blogs/new', function(req, res, next) {
 
 /* show */
 app.get('/api/blogs/:id', function(req, res, next) {
-  db.get('select title, contents from blogs where id = $id',
+  db.get('select id, title, contents from blogs where id = $id',
     { $id: req.params.id }, (err, item) => {
       if (!err){
         res.json(item);
