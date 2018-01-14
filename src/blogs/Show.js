@@ -5,23 +5,16 @@ class Blog extends Component {
 
   constructor(props) {
     super(props);
-    // this.state = this.props.match.params;
-    // console.log(props);
     console.log("bbbbbb")
     console.log(this.props.match.params.params_id)
     console.log("bbbbbb")
     this.state = { 
-      blog: { id: this.props.match.params.params_id, title:"title", contents: "hoge" }
-      // blog: { id: this.props.match.params.params_id, title:"title", contents: "hoge" }
+        blog: { id: null, title:null, contents: null }
     };
   }
 
   componentDidMount() {
-    console.log("aaaaaaaa")
-    console.log(`http://localhost:3001/api/blogs/${this.state.blog.id}`)
-    console.log("aaaaaaaa")
-    fetch(`http://localhost:3001/api/blogs/${this.state.blog.id}`)
-    // fetch(`http://localhost:3001/api/blogs/`)
+      fetch(`http://localhost:3001/api/blogs/${this.props.match.params.params_id}`)
     .then(
       res =>
         res.json().then(data => {
@@ -38,10 +31,7 @@ class Blog extends Component {
         }
       )
     );
-    // .then(blogs => this.setState({blogs}));
-
-
-
+    }
   }
 
   render() {
