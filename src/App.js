@@ -16,7 +16,7 @@ const App = () => (
       </ul>
       <Route exact path='/' component={Top} />
       <Route exact path='/blogs' component={Blogs} />
-      <Route exact path='/blogs/:params_id' component={Blog} />
+      <Route exact path='/blogs/show/:params_id' component={Blog} />
       <Route exact path='/blogs/new' component={NewBlog} />
     </div>
   </BrowserRouter>

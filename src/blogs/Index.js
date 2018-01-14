@@ -22,7 +22,7 @@ class Blogs extends Component {
         <p>This is Blog page! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis, esse.</p>
         {blogs.map(blog => (
           <li key={blog.id}>
-            <Link to={`/blogs/${blog.id}`}>{blog.title}</Link>
+            <Link to={`/blogs/show/${blog.id}`}>{blog.title}</Link>
           </li>
         ))}
       </div>
