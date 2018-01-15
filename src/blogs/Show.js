@@ -53,6 +53,7 @@ class Blog extends Component {
     <div>
       <h2>Title:{this.state.blog.title} Id:{this.state.blog.id}</h2>
       <p>{this.state.blog.contents}</p>
+      <p><Link to={`/blogs/edit/${this.state.blog.id}`}>Edit</Link></p>
       <p><Link to='/blogs'>Back</Link></p>
     </div>
     )
