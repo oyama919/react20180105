@@ -5,7 +5,8 @@ class NewBlog extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      title: ''
+      title: '',
+      contents: ''
     };
   }
 
@@ -20,7 +21,8 @@ class NewBlog extends Component {
     const HEADERS = new Headers();
     HEADERS.append('Content-Type', 'application/json');
     const title = e.target.title.value;
-    let post_data = {title};
+    const contents = e.target.contents.value;
+    let post_data = {title, contents};
     let options = {
       method: 'POST',
       headers: HEADERS,
@@ -47,6 +49,7 @@ class NewBlog extends Component {
   render() {
     return (<form onSubmit={this.handleSubmit}>
       <input type="text" name="title" onChange={(e) => this.onChangeValue(e)} value={this.state.title}/>
+      <input type="text" name="contents" onChange={(e) => this.onChangeValue(e)} value={this.state.contents}/>
       <input type="submit" value="送信"/>
     </form>)
   }

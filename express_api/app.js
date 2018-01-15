@@ -25,7 +25,8 @@ app.get('/api/blogs', function(req, res) {
 /* Post new */
 app.post('/api/blogs/new', function(req, res, next) {
   var tle = req.body.title;
-  db.run('insert into blogs (title) values (?)',[tle]);
+  var con = req.body.contents;
+  db.run('insert into blogs (title, contents) values (?, ?)',[tle, con]);
 });
 
 /* show and edit */
