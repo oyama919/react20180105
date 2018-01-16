@@ -22,6 +22,7 @@ class NewBlog extends Component {
     HEADERS.append('Content-Type', 'application/json');
     const title = e.target.title.value;
     const contents = e.target.contents.value;
+    if (title === '' || contents === '') return;
     let post_data = {title, contents};
     let options = {
       method: 'POST',
