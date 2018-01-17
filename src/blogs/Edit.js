@@ -7,7 +7,7 @@ class EditBlog extends Component {
     super(props);
     if(!isNaN(this.props.match.params.id)){
       this.state = { 
-        blog: { id: null, title:null, contents: null }
+        id: '', title:'', contents: ''
       };
     }else {
       this.state = this.props.match.params.id;
@@ -21,16 +21,20 @@ class EditBlog extends Component {
         res =>
           res.json().then(data => {
             this.setState({
-              blog: {
-                id: data.id, 
+                id: data.id,
                 title: data.title,
                 contents: data.contents
-              }
             })
           } 
         )
       );
     }
+  }
+
+  onChangeValue(e) {
+    this.setState({
+      [e.target.name]: e.target.value
+    });
   }
 
   render() {
@@ -43,13 +47,18 @@ class EditBlog extends Component {
         <p>Blogs id が見つかりませんでした</p>
       )
     } else {
-    return (
-    <div>
-      <h2>Title:{this.state.blog.title} Id:{this.state.blog.id}</h2>
-      <p>{this.state.blog.contents}</p>
-      <p><Link to='/blogs'>Back</Link></p>
-    </div>
-    )
+        return (
+          <div>
+            <form onSubmit={this.handleSubmit}>
+              <label id="title">title</label>
+              <input type="text" name="title" onChange={(e) => this.onChangeValue(e)} value={this.state.title}/>
+              <label id="contents">contents</label>
+              <input type="text" name="contents" onChange={(e) => this.onChangeValue(e)} value={this.state.contents}/>
+              <input type="submit" value="送信"/>
+            </form>
+            <p><Link to='/blogs'>Back</Link></p>
+          </div>
+      )
     }
   }
 
