@@ -42,10 +42,6 @@ class EditBlog extends Component {
       return (
         <p>Blogs id:'{this.state}' が見つかりませんでした</p>
       )
-    } else if (this.state.blog === null)  {
-      return (
-        <p>Blogs id が見つかりませんでした</p>
-      )
     } else {
         return (
           <div>
