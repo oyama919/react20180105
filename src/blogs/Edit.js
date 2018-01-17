@@ -20,6 +20,8 @@ class EditBlog extends Component {
       .then(
         res =>
           res.json().then(data => {
+            if (data.title === null){ data.title = "" };
+            if (data.contents === null){ data.contents = "" };  
             this.setState({
                 id: data.id,
                 title: data.title,
