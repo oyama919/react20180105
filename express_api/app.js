@@ -39,6 +39,14 @@ app.get('/api/blogs/:id', function(req, res, next) {
   });
 });
 
+/* Post edit */
+app.post('/api/blogs/edit', function(req, res, next) {
+  var id = req.body.id;
+  var tle = req.body.title;
+  var con = req.body.contents;
+  db.run(`update blogs set title=${tle} contents=${con} where id=${id}`);
+});
+
 
 //start: node-dev app.js (npm i -g node-dev)
 var server = app.listen(3001, function() {
