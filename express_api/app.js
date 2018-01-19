@@ -44,7 +44,7 @@ app.post('/api/blogs/edit', function(req, res, next) {
   var id = req.body.id;
   var tle = req.body.title;
   var con = req.body.contents;
-  db.run(`update blogs set title=${tle} contents=${con} where id=${id}`);
+  db.run(`update blogs set title='${tle}', contents='${con}' where id='${id}'`);
 });
 
 
