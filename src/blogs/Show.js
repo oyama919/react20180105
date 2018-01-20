@@ -5,9 +5,6 @@ class Blog extends Component {
 
   constructor(props) {
     super(props);
-    console.log("bbbbbb")
-    console.log(this.props.match.params.params_id)
-    console.log("bbbbbb")
     if(!isNaN(this.props.match.params.params_id)){
       this.state = { 
         blog: { id: null, title:null, contents: null }
@@ -23,9 +20,6 @@ class Blog extends Component {
       .then(
         res =>
           res.json().then(data => {
-            console.log("cccccc")
-            console.log(data)
-            console.log("cccccc")
             this.setState({
               blog: {
                 id: data.id, 
