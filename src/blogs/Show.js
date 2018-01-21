@@ -33,6 +33,9 @@ class Blog extends Component {
     }
   }
 
+ deleteItem() {
+  this.props.history.push('/blogs');
+ }
   render() {
     if (this.state === undefined || this.state === null || isNaN(this.props.match.params.params_id)) {
       return (
@@ -46,7 +49,10 @@ class Blog extends Component {
     return (
     <div>
       <h2>Title:{this.state.blog.title} Id:{this.state.blog.id}</h2>
-      <p>{this.state.blog.contents}</p>
+      <div>
+       <p>{this.state.blog.contents}</p>
+       <button onClick={this.deleteItem.bind(this)} value={this.state.blog.id} className="remove_button">delete</button>
+      </div>
       <p><Link to={`/blogs/edit/${this.state.blog.id}`}>Edit</Link></p>
       <p><Link to='/blogs'>Back</Link></p>
     </div>
