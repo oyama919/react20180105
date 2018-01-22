@@ -38,9 +38,6 @@ class NewBlog extends Component {
       console.log("Success");
       return response;
     })
-    .then(function(json) {
-      console.log(json.errors);
-    })
     .catch(function(err) {
       console.log("Error " + err);
     })
