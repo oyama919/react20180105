@@ -70,17 +70,17 @@ class Blog extends Component {
         <p>Blogs id が見つかりませんでした</p>
       )
     } else {
-    return (
-    <div>
-      <h2>Title:{this.state.blog.title} Id:{this.state.blog.id}</h2>
+      return (
       <div>
-       <p>{this.state.blog.contents}</p>
-       <button onClick={this.deleteItem.bind(this)} value={this.state.blog.id} className="remove_button">delete</button>
+        <h2>Title:{this.state.blog.title} Id:{this.state.blog.id}</h2>
+        <div>
+        <p>{this.state.blog.contents}</p>
+        <button onClick={this.deleteItem.bind(this)} value={this.state.blog.id} className="remove_button">delete</button>
+        </div>
+        <p><Link to={`/blogs/edit/${this.state.blog.id}`}>Edit</Link></p>
+        <p><Link to='/blogs'>Back</Link></p>
       </div>
-      <p><Link to={`/blogs/edit/${this.state.blog.id}`}>Edit</Link></p>
-      <p><Link to='/blogs'>Back</Link></p>
-    </div>
-    )
+      )
     }
   }
 
