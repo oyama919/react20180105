@@ -47,6 +47,11 @@ app.post('/api/blogs/edit', function(req, res, next) {
   db.run(`update blogs set title='${tle}', contents='${con}' where id='${id}'`);
 });
 
+/* delete */
+app.post('/api/blogs/delete', function(req, res, next) {
+  var id = req.body.id;
+  db.run(`delete from blogs where id='${id}'`);
+});
 
 //start: node-dev app.js (npm i -g node-dev)
 var server = app.listen(3001, function() {

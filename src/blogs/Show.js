@@ -34,7 +34,31 @@ class Blog extends Component {
   }
 
  deleteItem() {
+  const HEADERS = new Headers();
+  HEADERS.append('Content-Type', 'application/json');
+  const id = this.props.match.params.params_id;
+  if (id === '') return;
+  let post_data = {id};
+  let options = {
+    method: 'POST',
+    headers: HEADERS,
+    mode: 'cors',
+    cache: 'default',
+    body: JSON.stringify(post_data)
+  };
+
+  var request = new Request('http://localhost:3001/api/blogs/delete', options);
+
+  fetch(request).then(function(response) {
+    console.log("Success");
+    return response;
+  })
+  .catch(function(err) {
+    console.log("Error " + err);
+  })
+
   this.props.history.push('/blogs');
+  window.location.reload();
  }
   render() {
     if (this.state === undefined || this.state === null || isNaN(this.props.match.params.params_id)) {
