@@ -70,6 +70,8 @@ class EditBlog extends Component {
       console.log("Error " + err);
     })
 
+    this.props.history.push('/blogs');
+    window.location.reload();
   };
 
   render() {
