@@ -1,4 +1,5 @@
 # react20180105
 
-色々試す用のreactRepositoryです
-Reduxを使用しないでExpressと連携させてCRUDを一通り作る予定です
+色々試す用のreactRepositoryです。
+Reduxを使用しないでExpressと連携させてCRUDを一通り作りました。
+DBはSQLiteをつかっています。
