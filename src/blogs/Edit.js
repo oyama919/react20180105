@@ -47,7 +47,14 @@ class EditBlog extends Component {
     const id = this.props.match.params.id;
     const title = e.target.title.value;
     const contents = e.target.contents.value;
-    if (id === '' ||title === '' || contents === '') return;
+    if (id === '') return;
+    if (title === '') {
+      alert("titleを入力して下さい");
+      return;
+    }else if(contents === ''){
+      alert("contentsを入力して下さい");
+      return;
+    };
     let post_data = {id, title, contents};
     let options = {
       method: 'POST',
