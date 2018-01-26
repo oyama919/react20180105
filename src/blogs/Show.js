@@ -29,7 +29,9 @@ class Blog extends Component {
             })
           } 
         )
-      );
+      ).catch(function (error) {
+        console.log(error);
+      });
     }
   }
 
