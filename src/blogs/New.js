@@ -55,7 +55,7 @@ class NewBlog extends Component {
   render() {
     return (<form onSubmit={this.handleSubmit.bind(this)}>
       <label id="title">title</label>
-      <input type="text" name="title" onChange={(e) => this.onChangeValue(e)} value={this.state.title}/>
+      <input type="text" name="title" onChange={(e) => this.onChangeValue(e)} value={this.state.title} required/>
       <label id="contents">contents</label>
       <input type="text" name="contents" onChange={(e) => this.onChangeValue(e)} value={this.state.contents}/>
       <input type="submit" value="送信"/>
