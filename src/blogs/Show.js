@@ -69,7 +69,7 @@ class Blog extends Component {
       )
     } else if (this.state.blog === null)  {
       return (
-        <p>Blogs id が見つかりませんでした</p>
+        <p>エラーが発生しました</p>
       )
     } else {
       return (
